@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -16 28 28" width="28" height="28">
+  <!-- Heart (HP indicator) - inactive/empty state -->
+  <!-- Heart body dimmed -->
+  <path d="M0,8 C-18,-4 -9,-20 0,-10 C9,-20 18,-4 0,8 Z" fill="#57202a" stroke="#8d4a56" stroke-width="2" stroke-opacity="0.9"/>
+</svg>

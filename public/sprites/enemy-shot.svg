@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 28" width="28" height="28">
+  <!-- Enemy shot (basic red) -->
+  <!-- Glow -->
+  <circle cx="0" cy="0" r="12" fill="#ff7c7c" opacity="0.25"/>
+  <!-- Body -->
+  <circle cx="0" cy="0" r="7" fill="#ff7c7c"/>
+  <!-- Edge -->
+  <circle cx="0" cy="0" r="7" fill="none" stroke="#ffd4d4" stroke-width="1.5" stroke-opacity="0.8"/>
+  <!-- Specular -->
+  <circle cx="-2" cy="-2" r="2" fill="#ffffff" opacity="0.55"/>
+</svg>

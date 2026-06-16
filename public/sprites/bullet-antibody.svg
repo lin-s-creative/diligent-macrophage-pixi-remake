@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 28" width="28" height="28">
+  <!-- Bullet: Antibody (weapon 3) - Y-shaped immunoglobulin -->
+  <!-- Outer glow halo -->
+  <circle cx="0" cy="0" r="14" fill="#ffdc4d" opacity="0.18"/>
+
+  <!-- Y arms - dark shadow -->
+  <polyline points="-8,8 0,0 10,-10" fill="none" stroke="#806a00" stroke-width="7" stroke-opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="0,0 10,10" fill="none" stroke="#806a00" stroke-width="7" stroke-opacity="0.55" stroke-linecap="round"/>
+
+  <!-- Bright arms -->
+  <polyline points="-8,8 0,0 10,-10" fill="none" stroke="#ffdc4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="0,0 10,10" fill="none" stroke="#ffdc4d" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Inner bright accent -->
+  <polyline points="-8,8 0,0 10,-10" fill="none" stroke="#fff8bb" stroke-width="2" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="0,0 10,10" fill="none" stroke="#fff8bb" stroke-width="2" stroke-opacity="0.85" stroke-linecap="round"/>
+
+  <!-- Binding tips -->
+  <circle cx="-8" cy="8" r="2.4" fill="#fff8bb" opacity="0.95"/>
+  <circle cx="10" cy="-10" r="2.4" fill="#fff8bb" opacity="0.95"/>
+  <circle cx="10" cy="10" r="2.4" fill="#fff8bb" opacity="0.95"/>
+  <!-- Center joint -->
+  <circle cx="0" cy="0" r="2" fill="#ffdc4d" opacity="0.95"/>
+</svg>

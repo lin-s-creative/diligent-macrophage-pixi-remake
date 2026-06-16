@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-140 -110 280 220" width="280" height="220">
+  <!-- Boss: Large multi-lobed organism with tendrils -->
+
+  <!-- Soft outer aura -->
+  <circle cx="0" cy="0" r="100" fill="#711426" opacity="0.18"/>
+
+  <!-- Body blob lobes -->
+  <circle cx="-18" cy="-30" r="42" fill="#c45770" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="26" cy="-18" r="38" fill="#b94a62" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="-35" cy="18" r="36" fill="#8a3548" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="22" cy="28" r="45" fill="#c45770" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="0" cy="0" r="52" fill="#b94a62" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="-44" cy="-8" r="28" fill="#8a3548" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="40" cy="10" r="30" fill="#c45770" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="8" cy="-42" r="26" fill="#b94a62" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+  <circle cx="-12" cy="38" r="28" fill="#c45770" stroke="#711426" stroke-width="5" stroke-opacity="0.9"/>
+
+  <!-- Surface granules -->
+  <circle cx="18" cy="-40" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-30" cy="-20" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="40" cy="-10" r="5" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-50" cy="10" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="10" cy="40" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-20" cy="50" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="50" cy="20" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-40" cy="-40" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="30" cy="50" r="5" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-10" cy="-55" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="55" cy="-25" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-55" cy="30" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="25" cy="-55" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-35" cy="45" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="45" cy="40" r="5" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="-60" cy="-15" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="60" cy="5" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="0" cy="60" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="-25" cy="-50" r="4" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="35" cy="-35" r="3" fill="#ff9b8b" opacity="0.5"/>
+  <circle cx="-45" cy="35" r="5" fill="#e0a0b0" opacity="0.5"/>
+  <circle cx="15" cy="-60" r="3" fill="#ff9b8b" opacity="0.5"/>
+
+  <!-- Spike crowns around silhouette -->
+  <g fill="#9a3048" stroke="#39040c" stroke-width="2" stroke-opacity="0.8">
+    <polygon points="46,-14 64,-18 48,-10"/>
+    <polygon points="40,-30 56,-40 44,-26"/>
+    <polygon points="20,-48 28,-66 24,-44"/>
+    <polygon points="-5,-50 -2,-68 -8,-46"/>
+    <polygon points="-30,-42 -40,-58 -34,-38"/>
+    <polygon points="-48,-20 -64,-26 -50,-16"/>
+    <polygon points="-52,8 -68,6 -54,12"/>
+    <polygon points="-44,32 -58,42 -46,36"/>
+    <polygon points="-20,50 -24,66 -18,52"/>
+    <polygon points="8,52 6,70 12,54"/>
+    <polygon points="34,42 44,56 38,44"/>
+    <polygon points="50,22 66,28 52,26"/>
+    <polygon points="54,-4 70,-2 56,0"/>
+    <polygon points="48,-24 62,-30 50,-20"/>
+  </g>
+
+  <!-- Tendrils outer -->
+  <path d="M-75,-45 Q-112,-74 -124,-22" fill="none" stroke="#5d1020" stroke-width="7" stroke-opacity="0.85"/>
+  <path d="M72,-38 Q118,-45 128,3" fill="none" stroke="#5d1020" stroke-width="7" stroke-opacity="0.85"/>
+  <path d="M-70,48 Q-112,78 -128,31" fill="none" stroke="#5d1020" stroke-width="7" stroke-opacity="0.85"/>
+  <path d="M67,55 Q116,84 124,28" fill="none" stroke="#5d1020" stroke-width="7" stroke-opacity="0.85"/>
+
+  <!-- Tendrils inner cores -->
+  <path d="M-75,-45 Q-110,-70 -120,-24" fill="none" stroke="#ff7c7c" stroke-width="3" stroke-opacity="0.6"/>
+  <path d="M72,-38 Q115,-42 124,1" fill="none" stroke="#ff7c7c" stroke-width="3" stroke-opacity="0.6"/>
+  <path d="M-70,48 Q-110,75 -124,30" fill="none" stroke="#ff7c7c" stroke-width="3" stroke-opacity="0.6"/>
+  <path d="M67,55 Q112,80 120,28" fill="none" stroke="#ff7c7c" stroke-width="3" stroke-opacity="0.6"/>
+
+  <!-- Tendril hooked tips -->
+  <circle cx="-124" cy="-22" r="5" fill="#ff5a5a" opacity="0.85"/>
+  <circle cx="-124" cy="-22" r="1.8" fill="#ffffff" opacity="0.55" transform="translate(-1.5,-1.5)"/>
+  <circle cx="128" cy="3" r="5" fill="#ff5a5a" opacity="0.85"/>
+  <circle cx="126.5" cy="1.5" r="1.8" fill="#ffffff" opacity="0.55"/>
+  <circle cx="-128" cy="31" r="5" fill="#ff5a5a" opacity="0.85"/>
+  <circle cx="-129.5" cy="29.5" r="1.8" fill="#ffffff" opacity="0.55"/>
+  <circle cx="124" cy="28" r="5" fill="#ff5a5a" opacity="0.85"/>
+  <circle cx="122.5" cy="26.5" r="1.8" fill="#ffffff" opacity="0.55"/>
+
+  <!-- Central nucleus -->
+  <circle cx="0" cy="0" r="24" fill="#5c2030" stroke="#39040c" stroke-width="3" stroke-opacity="0.9"/>
+  <circle cx="-4" cy="-4" r="9" fill="#ff5a5a" opacity="0.55"/>
+  <circle cx="-7" cy="-7" r="3" fill="#ffffff" opacity="0.45"/>
+
+  <!-- Subtle highlights -->
+  <ellipse cx="-12" cy="-20" rx="42" ry="14" fill="#ffb6ae" opacity="0.45"/>
+  <ellipse cx="28" cy="22" rx="34" ry="12" fill="#ffb6ae" opacity="0.45"/>
+  <ellipse cx="-22" cy="-28" rx="14" ry="5" fill="#ffffff" opacity="0.32"/>
+</svg>

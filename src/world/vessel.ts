@@ -1,9 +1,15 @@
-import { BASE_VESSEL_BOTTOM, BASE_VESSEL_TOP, VESSEL_WAVE } from '../config/constants';
+import type { LevelConfig } from '../config/levels';
 
-export function vesselTopAt(x: number): number {
-  return BASE_VESSEL_TOP + Math.sin(x * 0.014) * VESSEL_WAVE + Math.sin(x * 0.037 + 1.3) * 7;
+export function vesselTopAt(x: number, level: LevelConfig): number {
+  const { geometry } = level;
+  return geometry.topBase
+    + Math.sin(x * geometry.topFrequency) * geometry.wave
+    + Math.sin(x * 0.037 + geometry.topPhase) * geometry.secondaryWave;
 }
 
-export function vesselBottomAt(x: number): number {
-  return BASE_VESSEL_BOTTOM + Math.sin(x * 0.012 + 2.5) * VESSEL_WAVE + Math.cos(x * 0.032) * 8;
+export function vesselBottomAt(x: number, level: LevelConfig): number {
+  const { geometry } = level;
+  return geometry.bottomBase
+    + Math.sin(x * geometry.bottomFrequency + geometry.bottomPhase) * geometry.wave
+    + Math.cos(x * 0.032) * (geometry.secondaryWave + 1);
 }

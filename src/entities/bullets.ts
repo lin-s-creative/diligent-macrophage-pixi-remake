@@ -1,6 +1,7 @@
 import { Container, Graphics } from 'pixi.js';
 import { COLORS } from '../config/constants';
-import { drawAntibody } from '../render/drawing';
+import { WEAPON_1_PHAGOCYTOSIS, WEAPON_2_PLASMA, WEAPON_3_ANTIBODY, WEAPON_4_CYTOKINE, WEAPON_5_HEAVY, ENEMY_SHOT_STRAIGHT, ENEMY_SHOT_HOMING } from '../config/balance';
+import { bulletSpriteKey, createSprite } from '../render/spriteSheet';
 import type { EnemyBulletEntity, PlayerBulletEntity, WeaponType } from '../types/entities';
 
 export function createBullet(type: WeaponType, x: number, y: number, angle = 0): PlayerBulletEntity {
@@ -8,6 +9,13 @@ export function createBullet(type: WeaponType, x: number, y: number, angle = 0):
   container.x = x;
   container.y = y;
   container.rotation = angle;
+
+  // SVG sprite as primary visual
+  const key = bulletSpriteKey(type);
+  const sprite = createSprite(key);
+  container.addChild(sprite);
+
+  // Graphics overlay (unused but kept for type compatibility)
   const visual = new Graphics();
   container.addChild(visual);
 
@@ -16,72 +24,115 @@ export function createBullet(type: WeaponType, x: number, y: number, angle = 0):
     weaponType: type,
     container,
     visual,
-    hitRadius: 8,
-    damage: 1,
-    speed: 7,
-    vx: Math.cos(angle) * 7,
-    vy: Math.sin(angle) * 7,
+    hitRadius: WEAPON_1_PHAGOCYTOSIS.hitRadius,
+    damage: WEAPON_1_PHAGOCYTOSIS.damage,
+    speed: WEAPON_1_PHAGOCYTOSIS.speed,
+    vx: Math.cos(angle) * WEAPON_1_PHAGOCYTOSIS.speed,
+    vy: Math.sin(angle) * WEAPON_1_PHAGOCYTOSIS.speed,
     turnSpeed: 0,
-    life: 5
+    life: WEAPON_1_PHAGOCYTOSIS.life
   };
 
   if (type === 1) {
-    visual.beginFill(COLORS.redWeapon);
-    visual.drawCircle(0, 0, 8);
-    visual.endFill();
-    visual.lineStyle(2, 0xffb0a0, 0.7);
-    visual.drawCircle(0, 0, 8);
+    sprite.width = 28;
+    sprite.height = 28;
   } else if (type === 2) {
-    bullet.speed = 6;
-    bullet.vx = Math.cos(angle) * 6;
-    bullet.vy = Math.sin(angle) * 6;
-    bullet.hitRadius = 9;
-    visual.beginFill(COLORS.blueWeapon);
-    visual.moveTo(12, 0);
-    visual.lineTo(-7, -7);
-    visual.lineTo(-3, 0);
-    visual.lineTo(-7, 7);
-    visual.closePath();
-    visual.endFill();
-    visual.lineStyle(2, 0xcde9ff, 0.55);
-    visual.moveTo(12, 0);
-    visual.lineTo(-7, -7);
-    visual.lineTo(-3, 0);
-    visual.lineTo(-7, 7);
-    visual.closePath();
+    bullet.speed = WEAPON_2_PLASMA.speed;
+    bullet.vx = Math.cos(angle) * bullet.speed;
+    bullet.vy = Math.sin(angle) * bullet.speed;
+    bullet.hitRadius = WEAPON_2_PLASMA.hitRadius;
+    bullet.damage = WEAPON_2_PLASMA.damage;
+    sprite.width = 32;
+    sprite.height = 28;
+  } else if (type === 3) {
+    bullet.speed = WEAPON_3_ANTIBODY.speed;
+    bullet.vx = Math.cos(angle) * bullet.speed;
+    bullet.vy = Math.sin(angle) * bullet.speed;
+    bullet.damage = WEAPON_3_ANTIBODY.damage;
+    bullet.hitRadius = WEAPON_3_ANTIBODY.hitRadius;
+    bullet.turnSpeed = WEAPON_3_ANTIBODY.turnSpeed;
+    sprite.width = 28;
+    sprite.height = 28;
+  } else if (type === 4) {
+    bullet.speed = WEAPON_4_CYTOKINE.speed;
+    bullet.vx = Math.cos(angle) * bullet.speed;
+    bullet.vy = Math.sin(angle) * bullet.speed;
+    bullet.damage = WEAPON_4_CYTOKINE.damage;
+    bullet.hitRadius = WEAPON_4_CYTOKINE.hitRadius;
+    sprite.width = 40;
+    sprite.height = 24;
   } else {
-    bullet.speed = 4;
-    bullet.vx = 4;
-    bullet.vy = 0;
-    bullet.damage = 0.8;
-    bullet.hitRadius = 12;
-    bullet.turnSpeed = 0.09;
-    drawAntibody(visual, COLORS.yellowWeapon);
+    bullet.speed = WEAPON_5_HEAVY.speed;
+    bullet.vx = Math.cos(angle) * bullet.speed;
+    bullet.vy = Math.sin(angle) * bullet.speed;
+    bullet.damage = WEAPON_5_HEAVY.damage;
+    bullet.hitRadius = WEAPON_5_HEAVY.hitRadius;
+    bullet.life = WEAPON_5_HEAVY.life;
+    sprite.width = 52;
+    sprite.height = 40;
   }
 
   return bullet;
 }
 
-export function createEnemyBullet(x: number, y: number, targetX: number, targetY: number, speed = 3.6, radius = 8): EnemyBulletEntity {
+export function createEnemyBullet(x: number, y: number, targetX: number, targetY: number, speed: number = ENEMY_SHOT_STRAIGHT.speed, radius: number = ENEMY_SHOT_STRAIGHT.radius): EnemyBulletEntity {
   const container = new Container();
   container.x = x;
   container.y = y;
+
+  // SVG sprite
+  const sprite = createSprite('enemyShot', radius * 2, radius * 2);
+  container.addChild(sprite);
+
+  // Graphics overlay
   const visual = new Graphics();
-  visual.beginFill(COLORS.enemyShot);
-  visual.drawCircle(0, 0, radius);
-  visual.endFill();
-  visual.lineStyle(2, 0xffdddd, 0.5);
-  visual.drawCircle(0, 0, radius);
   container.addChild(visual);
 
   const angle = Math.atan2(targetY - y, targetX - x);
+  container.rotation = angle;
   return {
     kind: 'enemyBullet',
+    bulletType: 'straight',
     container,
     visual,
     hitRadius: radius,
     vx: Math.cos(angle) * speed,
     vy: Math.sin(angle) * speed,
+    speed,
+    turnSpeed: 0,
+    hp: 1,
+    maxHp: 1,
     life: 6
+  };
+}
+
+export function createEnemyHomingBullet(x: number, y: number, targetX: number, targetY: number, speed: number = ENEMY_SHOT_HOMING.speed): EnemyBulletEntity {
+  const container = new Container();
+  container.x = x;
+  container.y = y;
+
+  // SVG sprite
+  const sprite = createSprite('enemyShotHoming', 48, 48);
+  container.addChild(sprite);
+
+  // Graphics overlay
+  const visual = new Graphics();
+  container.addChild(visual);
+
+  const angle = Math.atan2(targetY - y, targetX - x);
+  container.rotation = angle;
+  return {
+    kind: 'enemyBullet',
+    bulletType: 'homing',
+    container,
+    visual,
+    hitRadius: ENEMY_SHOT_HOMING.hitRadius,
+    vx: Math.cos(angle) * speed,
+    vy: Math.sin(angle) * speed,
+    speed,
+    turnSpeed: ENEMY_SHOT_HOMING.turnSpeed,
+    hp: ENEMY_SHOT_HOMING.hp,
+    maxHp: ENEMY_SHOT_HOMING.hp,
+    life: ENEMY_SHOT_HOMING.life
   };
 }

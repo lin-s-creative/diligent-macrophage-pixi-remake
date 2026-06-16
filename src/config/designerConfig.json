@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "constants": {
+    "width": 960,
+    "height": 540,
+    "baseVesselTop": 82,
+    "baseVesselBottom": 458,
+    "vesselWave": 20,
+    "playerMouseFollowSlowdown": 1,
+    "shotCooldown": 0.25,
+    "waveInterval": 2,
+    "bossAppearTime": 60,
+    "colors": {
+      "plasmaDark": "#200813",
+      "plasmaMid": "#5e1224",
+      "plasmaLight": "#9a2738",
+      "vesselWall": "#76182a",
+      "vesselWallDark": "#3e0b18",
+      "player": "#f5e1c8",
+      "playerEdge": "#d2a89f",
+      "redWeapon": "#e9413e",
+      "blueWeapon": "#44a3ff",
+      "yellowWeapon": "#ffdc4d",
+      "greenWeapon": "#53e07a",
+      "purpleWeapon": "#c86dff",
+      "coccus": "#66c653",
+      "bacillus": "#8c4dd3",
+      "phage": "#8b1e2e",
+      "boss": "#b94a62",
+      "enemyShot": "#ff7c7c",
+      "enemyHomingShot": "#ffa238",
+      "white": "#fff3df",
+      "black": "#0b0306"
+    }
+  },
+  "balance": {
+    "player": {
+      "radius": 28,
+      "speed": 4,
+      "mouseFollowSlowdown": 1,
+      "maxHealth": 5,
+      "invulnerabilityDuration": 2,
+      "visualScale": 0.5,
+      "shotCooldown": 0.25
+    },
+    "enemies": {
+      "coccus": {
+        "hp": 1,
+        "hitRadius": 20,
+        "speed": [
+          1.8,
+          2.7
+        ],
+        "value": 1,
+        "visualScale": 0.5
+      },
+      "bacillus": {
+        "hp": 2,
+        "hitRadius": 30,
+        "speed": [
+          1.2,
+          2
+        ],
+        "value": 2,
+        "visualScale": 0.5
+      },
+      "phage": {
+        "hp": 3,
+        "hitRadius": 28,
+        "speed": [
+          1,
+          1.7
+        ],
+        "value": 3,
+        "visualScale": 0.5,
+        "shootTimerRange": [
+          0.3,
+          1.3
+        ],
+        "homingShootTimerRange": [
+          2,
+          4.6
+        ]
+      }
+    },
+    "boss": {
+      "hp": 20,
+      "hitRadius": 78,
+      "speed": 1.2,
+      "shootInterval": 1.2,
+      "homingShootInterval": 3.5,
+      "value": 10,
+      "visualScale": 0.5
+    },
+    "weapons": {
+      "1": {
+        "speed": 7,
+        "damage": 1,
+        "hitRadius": 8,
+        "life": 5,
+        "turnSpeed": 0
+      },
+      "2": {
+        "speed": 6.2,
+        "damage": 1,
+        "hitRadius": 9,
+        "life": 5,
+        "turnSpeed": 0
+      },
+      "3": {
+        "speed": 4.4,
+        "damage": 0.85,
+        "hitRadius": 12,
+        "life": 5,
+        "turnSpeed": 0.09
+      },
+      "4": {
+        "speed": 6.4,
+        "damage": 0.9,
+        "hitRadius": 9,
+        "life": 5,
+        "turnSpeed": 0
+      },
+      "5": {
+        "speed": 5.2,
+        "damage": 2.8,
+        "hitRadius": 17,
+        "life": 4.5,
+        "turnSpeed": 0
+      }
+    },
+    "enemyProjectiles": {
+      "straight": {
+        "speed": 5,
+        "radius": 8,
+        "hp": 1,
+        "life": 6
+      },
+      "homing": {
+        "speed": 2.35,
+        "hitRadius": 15,
+        "hp": 2,
+        "turnSpeed": 0.038,
+        "life": 8
+      }
+    },
+    "bonus": {
+      "driftSpeed": -1.4,
+      "hitRadius": 18,
+      "buffDuration": 20,
+      "rotationInterval": 2.6
+    },
+    "spawning": {
+      "waveInterval": 2,
+      "bossAppearTime": 60,
+      "bgScrollSpeed": 1
+    }
+  },
+  "levels": [
+    {
+      "id": 1,
+      "title": "СОСУД",
+      "shortTitle": "Кровь",
+      "location": "в сосуде",
+      "description": "Классический кровоток: маневрируй между стенками и уничтожь очаг инфекции.",
+      "unlockHint": "Доступен сразу",
+      "environment": "vessel",
+      "theme": {
+        "background": "#200813",
+        "textureA": "#4f1020",
+        "textureB": "#68172a",
+        "wall": "#76182a",
+        "wallDark": "#3e0b18",
+        "innerLine": "#ff9d9d",
+        "accent": "#ff9d84",
+        "panelFill": "#b9424e",
+        "panelEdge": "#ff9d84"
+      },
+      "parallax": {
+        "layers": [
+          {
+            "imageUrl": "/backgrounds/location-1-vessel/layer-4.svg",
+            "speed": 0.08,
+            "alpha": 1
+          },
+          {
+            "imageUrl": "/backgrounds/location-1-vessel/layer-3.svg",
+            "speed": 0.18,
+            "alpha": 0.92
+          },
+          {
+            "imageUrl": "/backgrounds/location-1-vessel/layer-2.svg",
+            "speed": 0.38,
+            "alpha": 0.9
+          },
+          {
+            "imageUrl": "/backgrounds/location-1-vessel/layer-1.svg",
+            "speed": 0.72,
+            "alpha": 0.95
+          }
+        ]
+      },
+      "geometry": {
+        "topBase": 82,
+        "bottomBase": 458,
+        "wave": 20,
+        "secondaryWave": 7,
+        "topFrequency": 0.014,
+        "bottomFrequency": 0.012,
+        "topPhase": 1.3,
+        "bottomPhase": 2.5
+      },
+      "scrollSpeed": 1,
+      "waveInterval": 2.25,
+      "bossAppearTime": 64,
+      "waveSize": [
+        2,
+        4
+      ],
+      "enemySpeedMultiplier": 1,
+      "enemyHpBonus": 0,
+      "phageShootInterval": 1.65,
+      "phageHomingShootInterval": 5.4,
+      "bossHp": 23,
+      "bossValue": 10,
+      "bossShootInterval": 1.28,
+      "bossHomingShootInterval": 5.8,
+      "availableWeaponBonuses": [
+        2
+      ],
+      "enemyMix": {
+        "coccusStart": 0.55,
+        "coccusEnd": 0.33,
+        "bacillusStart": 0.31,
+        "bacillusEnd": 0.45
+      }
+    },
+    {
+      "id": 2,
+      "title": "ЛЁГКИЕ",
+      "shortTitle": "Альвеолы",
+      "location": "в лёгких",
+      "description": "Воздушные альвеолы расширяют проход, но инфекция быстрее распространяется по тканям.",
+      "unlockHint": "Откроется после победы в сосуде",
+      "environment": "lungs",
+      "theme": {
+        "background": "#102034",
+        "textureA": "#2f6f84",
+        "textureB": "#9b4964",
+        "wall": "#d77f8e",
+        "wallDark": "#4b2035",
+        "innerLine": "#ffc7ca",
+        "accent": "#91ecff",
+        "panelFill": "#366f86",
+        "panelEdge": "#91ecff"
+      },
+      "geometry": {
+        "topBase": 68,
+        "bottomBase": 472,
+        "wave": 28,
+        "secondaryWave": 12,
+        "topFrequency": 0.011,
+        "bottomFrequency": 0.01,
+        "topPhase": 0.7,
+        "bottomPhase": 2.1
+      },
+      "scrollSpeed": 1.08,
+      "waveInterval": 1.95,
+      "bossAppearTime": 60,
+      "waveSize": [
+        3,
+        5
+      ],
+      "enemySpeedMultiplier": 1.1,
+      "enemyHpBonus": 0,
+      "phageShootInterval": 1.38,
+      "phageHomingShootInterval": 4.6,
+      "bossHp": 31,
+      "bossValue": 14,
+      "bossShootInterval": 1.12,
+      "bossHomingShootInterval": 4.9,
+      "availableWeaponBonuses": [
+        2,
+        3,
+        4
+      ],
+      "enemyMix": {
+        "coccusStart": 0.48,
+        "coccusEnd": 0.25,
+        "bacillusStart": 0.32,
+        "bacillusEnd": 0.42
+      }
+    },
+    {
+      "id": 3,
+      "title": "КОСТЬ",
+      "shortTitle": "Костный мозг",
+      "location": "в кости",
+      "description": "Узкие костные каналы требуют точных движений, а враги становятся крепче.",
+      "unlockHint": "Откроется после победы в лёгких",
+      "environment": "bone",
+      "theme": {
+        "background": "#140d17",
+        "textureA": "#6c3026",
+        "textureB": "#d6b27a",
+        "wall": "#d8c08a",
+        "wallDark": "#5f4a31",
+        "innerLine": "#ffe2a8",
+        "accent": "#ffd36e",
+        "panelFill": "#7d4b30",
+        "panelEdge": "#ffd36e"
+      },
+      "geometry": {
+        "topBase": 96,
+        "bottomBase": 444,
+        "wave": 16,
+        "secondaryWave": 10,
+        "topFrequency": 0.018,
+        "bottomFrequency": 0.017,
+        "topPhase": 1.8,
+        "bottomPhase": 3.2
+      },
+      "scrollSpeed": 1.16,
+      "waveInterval": 1.76,
+      "bossAppearTime": 56,
+      "waveSize": [
+        3,
+        6
+      ],
+      "enemySpeedMultiplier": 1.18,
+      "enemyHpBonus": 1,
+      "phageShootInterval": 1.14,
+      "phageHomingShootInterval": 3.9,
+      "bossHp": 40,
+      "bossValue": 18,
+      "bossShootInterval": 0.98,
+      "bossHomingShootInterval": 4.2,
+      "availableWeaponBonuses": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "enemyMix": {
+        "coccusStart": 0.4,
+        "coccusEnd": 0.18,
+        "bacillusStart": 0.36,
+        "bacillusEnd": 0.4
+      }
+    }
+  ],
+  "assets": {
+    "sprites": {
+      "player": "/sprites/player.svg",
+      "enemyCoccus": "/sprites/enemy-coccus.svg",
+      "enemyBacillus": "/sprites/enemy-bacillus.svg",
+      "enemyPhage": "/sprites/enemy-phage.svg",
+      "boss": "/sprites/boss.svg",
+      "bulletRed": "/sprites/bullet-red.svg",
+      "bulletBlue": "/sprites/bullet-blue.svg",
+      "bulletAntibody": "/sprites/bullet-antibody.svg",
+      "bulletGreen": "/sprites/bullet-green.svg",
+      "bulletPurple": "/sprites/bullet-purple.svg",
+      "enemyShot": "/sprites/enemy-shot.svg",
+      "enemyShotHoming": "/sprites/enemy-shot-homing.svg",
+      "heart": "/sprites/heart.svg",
+      "heartEmpty": "/sprites/heart-empty.svg",
+      "bonus": "/sprites/bonus.svg"
+    }
+  }
+}

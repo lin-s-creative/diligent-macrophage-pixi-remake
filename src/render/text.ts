@@ -1,5 +1,10 @@
 import { Text } from 'pixi.js';
 
+const TEXT_RESOLUTION = Math.min(window.devicePixelRatio || 1, 2) * 2;
+
+Text.defaultAutoResolution = false;
+Text.defaultResolution = TEXT_RESOLUTION;
+
 export const fontBase = {
   fontFamily: 'Arial, Helvetica, sans-serif',
   fill: '#fff0df',
@@ -27,8 +32,11 @@ export function createText(
     dropShadowBlur: 2,
     dropShadowDistance: 3
   });
+  label.resolution = TEXT_RESOLUTION;
+  label.roundPixels = true;
   label.anchor.set(anchorX, anchorY);
-  label.x = x;
-  label.y = y;
+  label.x = Math.round(x);
+  label.y = Math.round(y);
+  label.updateText(false);
   return label;
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -16 28 28" width="28" height="28">
+  <!-- Heart (HP indicator) - active state -->
+  <!-- Soft outer glow -->
+  <circle cx="0" cy="-2" r="16" fill="#ff5e67" opacity="0.3"/>
+  <!-- Heart body -->
+  <path d="M0,8 C-18,-4 -9,-20 0,-10 C9,-20 18,-4 0,8 Z" fill="#ff5e67" stroke="#ffd4d4" stroke-width="2" stroke-opacity="0.9"/>
+  <!-- Highlight bead -->
+  <ellipse cx="-5" cy="-8" rx="4" ry="2" fill="#ffffff" opacity="0.65"/>
+</svg>
